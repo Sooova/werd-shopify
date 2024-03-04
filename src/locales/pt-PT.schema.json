@@ -3,27 +3,48 @@
     "colors": {
       "name": "Cores",
       "settings": {
-        "background": {
-          "label": "Fundo"
+        "colors_solid_button_labels": {
+          "label": "Etiqueta do botão sólido",
+          "info": "Utilizado como cor do primeiro plano em cores de destaque."
         },
-        "background_gradient": {
-          "label": "Gradiente de fundo",
-          "info": "O gradiente de fundo substitui o fundo sempre que possível."
+        "colors_accent_1": {
+          "label": "Destaque 1",
+          "info": "Utilizado para fundo do botão sólido."
         },
-        "text": {
-          "label": "Texto"
+        "colors_accent_2": {
+          "label": "Destaque 2"
         },
-        "button_background": {
-          "label": "Fundo do botão sólido"
+        "header__1": {
+          "content": "Cores primárias"
         },
-        "button_label": {
-          "label": "Etiqueta do botão sólido"
+        "header__2": {
+          "content": "Cores secundárias"
         },
-        "secondary_button_label": {
-          "label": "Botão de contorno"
+        "colors_text": {
+          "label": "Texto",
+          "info": "Utilizado como cor do primeiro plano em cores de fundo."
         },
-        "shadow": {
-          "label": "Sombra"
+        "colors_outline_button_labels": {
+          "label": "Botão de contorno",
+          "info": "Também utilizado para ligações de texto."
+        },
+        "colors_background_1": {
+          "label": "Fundo 1"
+        },
+        "colors_background_2": {
+          "label": "Fundo 2"
+        },
+        "gradient_accent_1": {
+          "label": "Gradiente de destaque 1"
+        },
+        "gradient_accent_2": {
+          "label": "Gradiente de destaque 2"
+        },
+        "gradient_background_1": {
+          "label": "Gradiente de plano de fundo 1"
+        },
+        "gradient_background_2": {
+          "label": "Gradiente de plano de fundo 2"
         }
       }
     },
@@ -49,6 +70,20 @@
         },
         "body_scale": {
           "label": "Escala de tamanho do tipo de letra"
+        }
+      }
+    },
+    "styles": {
+      "name": "Ícones",
+      "settings": {
+        "accent_icons": {
+          "options__3": {
+            "label": "Botão de contorno"
+          },
+          "options__4": {
+            "label": "Texto"
+          },
+          "label": "Cor"
         }
       }
     },
@@ -347,27 +382,6 @@
           "content": "Adicione uma descrição da marca ao rodapé da sua loja."
         }
       }
-    },
-    "animations": {
-      "name": "Animações",
-      "settings": {
-        "animations_reveal_on_scroll": {
-          "label": "Revelar secções ao percorrer a página"
-        },
-        "animations_hover_elements": {
-          "options__1": {
-            "label": "Nenhum"
-          },
-          "options__2": {
-            "label": "Elevação vertical"
-          },
-          "label": "Efeito ao passar o rato",
-          "info": "Afeta cartões e botões.",
-          "options__3": {
-            "label": "Elevação 3D"
-          }
-        }
-      }
     }
   },
   "sections": {
@@ -379,6 +393,21 @@
       },
       "spacing": "Espaçamento",
       "colors": {
+        "accent_1": {
+          "label": "Destaque 1"
+        },
+        "accent_2": {
+          "label": "Destaque 2"
+        },
+        "background_1": {
+          "label": "Fundo 1"
+        },
+        "background_2": {
+          "label": "Fundo 2"
+        },
+        "inverse": {
+          "label": "Invertido"
+        },
         "label": "Esquema de cores",
         "has_cards_info": "Para alterar o esquema de cores do cartão, atualize as suas definições de tema."
       },
@@ -397,34 +426,6 @@
           "label": "Extra grande"
         }
       },
-      "image_shape": {
-        "options__1": {
-          "label": "Predefinição"
-        },
-        "options__2": {
-          "label": "Arco"
-        },
-        "options__3": {
-          "label": "Gota"
-        },
-        "options__4": {
-          "label": "Divisa para a esquerda"
-        },
-        "options__5": {
-          "label": "Divisa para a direita"
-        },
-        "options__6": {
-          "label": "Diamante"
-        },
-        "options__7": {
-          "label": "Paralelogramo"
-        },
-        "options__8": {
-          "label": "Redonda"
-        },
-        "label": "Forma de imagem",
-        "info": "Os cartões com o estilo padrão não têm bordas quando uma forma de imagem está ativa."
-      },
       "animation": {
         "content": "Animações",
         "image_behavior": {
@@ -434,13 +435,7 @@
           "options__2": {
             "label": "Movimento de ambiente"
           },
-          "label": "Comportamento da imagem",
-          "options__3": {
-            "label": "Posição de fundo fixa"
-          },
-          "options__4": {
-            "label": "Ampliar ao rodar a roda do rato"
-          }
+          "label": "Comportamento da imagem"
         }
       }
     },
@@ -470,41 +465,6 @@
           },
           "name": "Comunicado"
         }
-      },
-      "settings": {
-        "auto_rotate": {
-          "label": "Rotação automática de comunicados"
-        },
-        "change_slides_speed": {
-          "label": "Mudar a cada"
-        },
-        "header__1": {
-          "content": "Ícones de redes sociais",
-          "info": "Para apresentar as suas contas de redes sociais, associe-as nas [definições do tema](\/editor?context=theme&category=social%20media)."
-        },
-        "header__2": {
-          "content": "Comunicados"
-        },
-        "show_social": {
-          "label": "Mostrar ícones no computador"
-        },
-        "header__3": {
-          "content": "Seletor de país\/região",
-          "info": "Para adicionar um país\/região, aceda a [definições de mercado.](\/admin\/settings\/markets)"
-        },
-        "enable_country_selector": {
-          "label": "Ativar seletor de país\/região"
-        },
-        "header__4": {
-          "content": "Seletor de idioma",
-          "info": "Para adicionar um idioma, aceda a [definições de idioma.](\/admin\/settings\/languages)"
-        },
-        "enable_language_selector": {
-          "label": "Ativar seletor de idioma"
-        }
-      },
-      "presets": {
-        "name": "Barra de comunicado"
       }
     },
     "collage": {
@@ -660,8 +620,8 @@
       "name": "Liquid personalizado",
       "settings": {
         "custom_liquid": {
-          "label": "Código Liquid",
-          "info": "Adicione fragmentos de aplicação ou outro código para criar personalizações avançadas. [Saber mais](https:\/\/shopify.dev\/docs\/api\/liquid)"
+          "label": "Liquid personalizado",
+          "info": "Adicione fragmentos de aplicação ou outro código Liquid para criar personalizações avançadas."
         }
       },
       "presets": {
@@ -900,7 +860,7 @@
         },
         "header__9": {
           "content": "Seguir no Shop",
-          "info": "O Shop Pay tem de estar ativo para os clientes poderem seguir a sua loja na aplicação Shop a partir da sua frente de loja. [Saber mais](https:\/\/help.shopify.com\/manual\/online-store\/themes\/customizing-themes\/follow-on-shop)"
+          "info": "Apresente um botão para seguir na sua frente de loja na aplicação Shop. [Saber mais](https:\/\/help.shopify.com\/manual\/online-store\/themes\/customizing-themes\/follow-on-shop)"
         },
         "enable_follow_on_shop": {
           "label": "Ativar Seguir no Shop"
@@ -994,12 +954,6 @@
         },
         "enable_language_selector": {
           "label": "Ativar seletor de idioma"
-        },
-        "header__1": {
-          "content": "Cor"
-        },
-        "menu_color_scheme": {
-          "label": "Esquema de cores do menu"
         }
       }
     },
@@ -1012,8 +966,15 @@
         "image_2": {
           "label": "Segunda imagem"
         },
+        "color_scheme": {
+          "info": "Visível quando o recetor é exibido."
+        },
         "stack_images_on_mobile": {
           "label": "Empilhar imagens em dispositivos móveis"
+        },
+        "adapt_height_first_image": {
+          "label": "Adaptar altura da secção ao tamanho da primeira imagem",
+          "info": "Quando marcada, substitui a definição de altura do banner da imagem."
         },
         "show_text_box": {
           "label": "Mostrar recetores no desktop"
@@ -1281,9 +1242,6 @@
             },
             "button_link": {
               "label": "Ligação do botão"
-            },
-            "outline_button": {
-              "label": "Utilizar estilo de botão de contorno"
             }
           },
           "name": "Botão"
@@ -1628,31 +1586,18 @@
           "name": "Texto"
         },
         "variant_picker": {
-          "name": "Seletor de variante",
           "settings": {
             "picker_type": {
-              "label": "Estilo",
+              "label": "Tipo",
               "options__1": {
                 "label": "Pendente"
               },
               "options__2": {
                 "label": "Comprimidos"
               }
-            },
-            "swatch_shape": {
-              "label": "Paleta",
-              "info": "Ative [paletas](https:\/\/help.shopify.com\/en\/manual\/online-store\/themes\/theme-structure\/theme-settings#options-with-swatches) nas opções de produto.",
-              "options__1": {
-                "label": "Círculo"
-              },
-              "options__2": {
-                "label": "Quadrado"
-              },
-              "options__3": {
-                "label": "Nenhum"
-              }
             }
-          }
+          },
+          "name": "Seletor de variante"
         },
         "buy_buttons": {
           "settings": {
@@ -1661,8 +1606,8 @@
               "info": "Utilizando os métodos de pagamento disponíveis na sua loja, os clientes poderão ver a sua opção preferida, como o PayPal ou Apple Pay. [Saiba mais](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
             },
             "show_gift_card_recipient": {
-              "label": "Apresentar o formulário de informações do destinatário para cartões de oferta",
-              "info": "Permite aos compradores enviar cartões de oferta numa data agendada juntamente com uma mensagem pessoal. [Saber mais](https:\/\/help.shopify.com\/manual\/online-store\/themes\/customizing-themes\/add-gift-card-recipient-fields)"
+              "label": "Apresentar o formulário de informações do destinatário para produtos de cartões de oferta",
+              "info": "Os produtos de cartões de oferta podem ser opcionalmente enviados a um destinatário com uma mensagem pessoal."
             }
           },
           "name": "Botão de compra"
@@ -1856,6 +1801,15 @@
         },
         "description": {
           "name": "Descrição"
+        },
+        "custom_liquid": {
+          "name": "Liquid personalizado",
+          "settings": {
+            "custom_liquid": {
+              "label": "Liquid personalizado",
+              "info": "Adicione fragmentos de aplicação ou outro código Liquid para criar personalizações avançadas."
+            }
+          }
         },
         "rating": {
           "name": "Classificação do produto",
@@ -2495,25 +2449,12 @@
           "name": "Seletor de variante",
           "settings": {
             "picker_type": {
-              "label": "Estilo",
+              "label": "Tipo",
               "options__1": {
                 "label": "Pendente"
               },
               "options__2": {
                 "label": "Forma de comprimidos"
-              }
-            },
-            "swatch_shape": {
-              "label": "Paleta",
-              "info": "Ative [paletas](https:\/\/help.shopify.com\/en\/manual\/online-store\/themes\/theme-structure\/theme-settings#options-with-swatches) nas opções de produto.",
-              "options__1": {
-                "label": "Círculo"
-              },
-              "options__2": {
-                "label": "Quadrado"
-              },
-              "options__3": {
-                "label": "Nenhum"
               }
             }
           }
@@ -2524,6 +2465,10 @@
             "show_dynamic_checkout": {
               "label": "Mostrar botões dinâmicos de finalização da compra",
               "info": "Utilizando os métodos de pagamento disponíveis na sua loja, os clientes poderão ver a sua opção preferida, como o PayPal ou Apple Pay. [Saber mais](https:\/\/help.shopify.com\/manual\/using-themes\/change-the-layout\/dynamic-checkout)"
+            },
+            "show_gift_card_recipient": {
+              "label": "Apresentar o formulário do destinatário para produtos de cartões de oferta",
+              "info": "Quando estiverem ativados, os produtos de cartões de oferta podem ser opcionalmente enviados a um destinatário com uma mensagem pessoal."
             }
           }
         },
@@ -2541,6 +2486,14 @@
             },
             "text": {
               "label": "Texto"
+            }
+          }
+        },
+        "custom_liquid": {
+          "name": "Liquid personalizado",
+          "settings": {
+            "custom_liquid": {
+              "label": "Liquid personalizado"
             }
           }
         },
@@ -2620,6 +2573,9 @@
         "image_overlay_opacity": {
           "label": "Opacidade da sobreposição da imagem"
         },
+        "color_scheme": {
+          "info": "Visível quando o recetor é exibido."
+        },
         "show_text_below": {
           "label": "Mostrar conteúdo por baixo da imagem em dispositivos móveis",
           "info": "Para obter os melhores resultados, utilize uma imagem com uma proporção de 16:9. [Saber mais](https:\/\/help.shopify.com\/manual\/shopify-admin\/productivity-tools\/image-editor#understanding-image-aspect-ratio)"
@@ -2696,9 +2652,6 @@
             "label": "Direita"
           },
           "label": "Alinhamento do conteúdo em dispositivos móveis"
-        },
-        "color_scheme": {
-          "info": "Visível quando o recetor é exibido."
         }
       },
       "blocks": {
@@ -2863,6 +2816,9 @@
             },
             "image_overlay_opacity": {
               "label": "Opacidade da sobreposição da imagem"
+            },
+            "color_scheme": {
+              "info": "Visível quando o recetor é exibido."
             },
             "text_alignment_mobile": {
               "label": "Alinhamento do conteúdo em dispositivos móveis",
@@ -3334,20 +3290,6 @@
       },
       "presets": {
         "name": "Várias linhas"
-      }
-    },
-    "quick-order-list": {
-      "name": "Lista de encomendas rápida",
-      "settings": {
-        "show_image": {
-          "label": "Mostrar imagens"
-        },
-        "show_sku": {
-          "label": "Mostrar SKU"
-        }
-      },
-      "presets": {
-        "name": "Lista de encomendas rápida"
       }
     }
   }

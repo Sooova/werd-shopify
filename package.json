@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "login:prod": "shopify auth logout && shopify theme list -s werd-test",
-    "serve": "shopify theme dev --path src --store=werd-test --port=3030",
+    "login:prod": "shopify auth logout && shopify theme list -s werd-test-shop",
+    "serve": "shopify theme dev --path src --store=werd-test-shop --port=3030",
     "dev": "concurrently npm:serve"
   },
   "repository": {
