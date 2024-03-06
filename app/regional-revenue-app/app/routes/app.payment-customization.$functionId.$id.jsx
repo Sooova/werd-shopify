@@ -27,7 +27,7 @@ export const loader = async ({ params, request }) => {
   if (id === "new") {
     return {
       paymentMethodName: "",
-      cartTotal: "0",
+      productID: "",
     };
   }
 
@@ -56,7 +56,7 @@ export const loader = async ({ params, request }) => {
 
   return json({
     paymentMethodName: metafield?.paymentMethodName ?? "",
-    cartTotal: metafield?.cartTotal ?? "0",
+    productID: metafield?.productID ?? "",
   });
 };
 
@@ -68,11 +68,11 @@ export const action = async ({ params, request }) => {
   const formData = await request.formData();
 
   const paymentMethodName = formData.get("paymentMethodName");
-  const cartTotal = parseFloat(formData.get("cartTotal"));
+  const productID = formData.get("productID");
 
   const paymentCustomizationInput = {
     functionId,
-    title: `Hide ${paymentMethodName} if cart total is larger than ${cartTotal}`,
+    title: `Hide ${paymentMethodName} if cart contains productID: ${productID}`,
     enabled: true,
     metafields: [
       {
@@ -81,7 +81,7 @@ export const action = async ({ params, request }) => {
         type: "json",
         value: JSON.stringify({
           paymentMethodName,
-          cartTotal,
+          productID,
         }),
       },
     ],
@@ -149,7 +149,7 @@ export default function PaymentCustomization() {
   const [paymentMethodName, setPaymentMethodName] = useState(
     loaderData.paymentMethodName
   );
-  const [cartTotal, setCartTotal] = useState(loaderData.cartTotal);
+  const [productID, setProductID] = useState(loaderData.productID);
 
   const isLoading = navigation.state === "submitting";
 
@@ -169,7 +169,7 @@ export default function PaymentCustomization() {
   ) : null;
 
   const handleSubmit = () => {
-    submit({ paymentMethodName, cartTotal }, { method: "post" });
+    submit({ paymentMethodName, productID }, { method: "post" });
   };
 
   useEffect(() => {
@@ -210,11 +210,11 @@ export default function PaymentCustomization() {
                     requiredIndicator
                   />
                   <TextField
-                    name="cartTotal"
+                    name="productID"
                     type="number"
-                    label="Cart total"
-                    value={cartTotal}
-                    onChange={setCartTotal}
+                    label="Product ID"
+                    value={productID}
+                    onChange={setProductID}
                     disabled={isLoading}
                     autoComplete="on"
                     requiredIndicator
