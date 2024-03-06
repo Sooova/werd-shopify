@@ -2,7 +2,7 @@
 
 client_id = "78a135d7e13d44a5881948779120268c"
 name = "regional-revenue-app"
-application_url = "https://novel-startup-reed-texture.trycloudflare.com"
+application_url = "https://clinic-pizza-outsourcing-signatures.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_payment_customizations,write_payment_customizations,write_product
 
 [auth]
 redirect_urls = [
-  "https://novel-startup-reed-texture.trycloudflare.com/auth/callback",
-  "https://novel-startup-reed-texture.trycloudflare.com/auth/shopify/callback",
-  "https://novel-startup-reed-texture.trycloudflare.com/api/auth/callback"
+  "https://clinic-pizza-outsourcing-signatures.trycloudflare.com/auth/callback",
+  "https://clinic-pizza-outsourcing-signatures.trycloudflare.com/auth/shopify/callback",
+  "https://clinic-pizza-outsourcing-signatures.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
