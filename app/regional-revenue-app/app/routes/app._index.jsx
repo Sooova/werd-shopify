@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { json } from "@remix-run/node";
+import {Badge} from '@shopify/polaris';
+import {DescriptionList} from '@shopify/polaris';
 import {
   Link,
   useActionData,
@@ -31,46 +33,6 @@ export const loader = async ({ request }) => {
 export async function action({ request }) {
   const { admin } = await authenticate.admin(request);
 
-  const color = ["Red", "Orange", "Yellow", "Green"][
-    Math.floor(Math.random() * 4)
-  ];
-  const response = await admin.graphql(
-    `#graphql
-      mutation populateProduct($input: ProductInput!) {
-        productCreate(input: $input) {
-          product {
-            id
-            title
-            handle
-            status
-            variants(first: 10) {
-              edges {
-                node {
-                  id
-                  price
-                  barcode
-                  createdAt
-                }
-              }
-            }
-          }
-        }
-      }`,
-    {
-      variables: {
-        input: {
-          title: `${color} Snowboard`,
-          variants: [{ price: Math.random() * 100 }],
-        },
-      },
-    }
-  );
-
-  const responseJson = await response.json();
-
-  return json({
-    product: responseJson.data.productCreate.product,
-  });
 }
 
 export default function Index() {
@@ -79,28 +41,9 @@ export default function Index() {
   const actionData = useActionData();
   const submit = useSubmit();
 
-  const isLoading =
-    ["loading", "submitting"].includes(nav.state) && nav.formMethod === "POST";
-
-  const productId = actionData?.product?.id.replace(
-    "gid://shopify/Product/",
-    ""
-  );
-
-  useEffect(() => {
-    if (productId) {
-      shopify.toast.show("Product created");
-    }
-  }, [productId]);
-
-  const generateProduct = () => submit({}, { replace: true, method: "POST" });
-
   return (
     <Page>
-      <ui-title-bar title="Remix app template">
-        <button variant="primary" onClick={generateProduct}>
-          Generate a product
-        </button>
+      <ui-title-bar title="Payment Method Hider">
       </ui-title-bar>
       <VerticalStack gap="5">
         <Layout>
@@ -109,166 +52,50 @@ export default function Index() {
               <VerticalStack gap="5">
                 <VerticalStack gap="2">
                   <Text as="h2" variant="headingMd">
-                    Congrats on creating a new Shopify app 🎉
+                    Payment Method Hider
                   </Text>
                   <Text variant="bodyMd" as="p">
-                    This embedded app template uses{" "}
-                    <Link
-                      to="https://shopify.dev/docs/apps/tools/app-bridge"
-                      target="_blank"
-                    >
-                      App Bridge
-                    </Link>{" "}
-                    interface examples like an{" "}
-                    <Link to="/app/additional">
-                      additional page in the app nav
-                    </Link>
-                    , as well as an{" "}
-                    <Link
-                      to="https://shopify.dev/docs/api/admin-graphql"
-                      target="_blank"
-                    >
-                      Admin GraphQL
-                    </Link>{" "}
-                    mutation demo, to provide a starting point for app
-                    development.
+                    This application is able to conditionally hide a payment method, based on a specific product ID.
                   </Text>
                 </VerticalStack>
                 <VerticalStack gap="2">
                   <Text as="h3" variant="headingMd">
-                    Get started with products
+                    Get started
                   </Text>
                   <Text as="p" variant="bodyMd">
-                    Generate a product with GraphQL and get the JSON output for
-                    that product. Learn more about the{" "}
-                    <Link
-                      to="https://shopify.dev/docs/api/admin-graphql/latest/mutations/productCreate"
-                      target="_blank"
-                    >
-                      productCreate
-                    </Link>{" "}
-                    mutation in our API references.
+                    To get started, navigate to the payment settings, and add a new payment customisation.
                   </Text>
                 </VerticalStack>
                 <HorizontalStack gap="3" align="end">
-                  {actionData?.product && (
                     <Button
-                      url={`https://admin.shopify.com/store/${shop}/admin/products/${productId}`}
+                      url={`https://admin.shopify.com/store/${shop}/settings/payments`}
                       target="_blank"
                     >
-                      View product
+                      View Payment Settings
                     </Button>
-                  )}
-                  <Button loading={isLoading} primary onClick={generateProduct}>
-                    Generate a product
-                  </Button>
                 </HorizontalStack>
-                {actionData?.product && (
-                  <Box
-                    padding="4"
-                    background="bg-subdued"
-                    borderColor="border"
-                    borderWidth="1"
-                    borderRadius="2"
-                    overflowX="scroll"
-                  >
-                    <pre style={{ margin: 0 }}>
-                      <code>{JSON.stringify(actionData.product, null, 2)}</code>
-                    </pre>
-                  </Box>
-                )}
+                <VerticalStack gap="2">
+                  <Text as="p" variant="bodyMd">
+                    Scroll to <Badge >Payment Method Customisations</Badge> and select <Badge>manage</Badge>. 
+                  </Text>
+                  <Text as="p" variant="bodyMd">
+                    Select <Badge >Add a Customization</Badge>
+                  </Text>
+                  <Text as="p" variant="bodyMd">
+                    Select <Badge >Add a Customization</Badge>
+                  </Text>
+                  <Text as="p" variant="bodyMd">
+                    Select <Badge >payment-customization-js</Badge>
+                  </Text>
+                  <Text as="p" variant="bodyMd">
+                    Input the payment method to hide, and the productID.
+                  </Text>
+                  <Text as="p" variant="bodyMd">
+                    You should now see the removal of the payment method when the product is in the cart.
+                  </Text>
+                </VerticalStack>
               </VerticalStack>
             </Card>
-          </Layout.Section>
-          <Layout.Section secondary>
-            <VerticalStack gap="5">
-              <Card>
-                <VerticalStack gap="2">
-                  <Text as="h2" variant="headingMd">
-                    App template specs
-                  </Text>
-                  <VerticalStack gap="2">
-                    <Divider />
-                    <HorizontalStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        Framework
-                      </Text>
-                      <Link to="https://remix.run" target="_blank">
-                        Remix
-                      </Link>
-                    </HorizontalStack>
-                    <Divider />
-                    <HorizontalStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        Database
-                      </Text>
-                      <Link to="https://www.prisma.io/" target="_blank">
-                        Prisma
-                      </Link>
-                    </HorizontalStack>
-                    <Divider />
-                    <HorizontalStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        Interface
-                      </Text>
-                      <span>
-                        <Link to="https://polaris.shopify.com" target="_blank">
-                          Polaris
-                        </Link>
-                        {", "}
-                        <Link
-                          to="https://shopify.dev/docs/apps/tools/app-bridge"
-                          target="_blank"
-                        >
-                          App Bridge
-                        </Link>
-                      </span>
-                    </HorizontalStack>
-                    <Divider />
-                    <HorizontalStack align="space-between">
-                      <Text as="span" variant="bodyMd">
-                        API
-                      </Text>
-                      <Link
-                        to="https://shopify.dev/docs/api/admin-graphql"
-                        target="_blank"
-                      >
-                        GraphQL API
-                      </Link>
-                    </HorizontalStack>
-                  </VerticalStack>
-                </VerticalStack>
-              </Card>
-              <Card>
-                <VerticalStack gap="2">
-                  <Text as="h2" variant="headingMd">
-                    Next steps
-                  </Text>
-                  <List spacing="extraTight">
-                    <List.Item>
-                      Build an{" "}
-                      <Link
-                        to="https://shopify.dev/docs/apps/getting-started/build-app-example"
-                        target="_blank"
-                      >
-                        {" "}
-                        example app
-                      </Link>{" "}
-                      to get started
-                    </List.Item>
-                    <List.Item>
-                      Explore Shopify’s API with{" "}
-                      <Link
-                        to="https://shopify.dev/docs/apps/tools/graphiql-admin-api"
-                        target="_blank"
-                      >
-                        GraphiQL
-                      </Link>
-                    </List.Item>
-                  </List>
-                </VerticalStack>
-              </Card>
-            </VerticalStack>
           </Layout.Section>
         </Layout>
       </VerticalStack>
