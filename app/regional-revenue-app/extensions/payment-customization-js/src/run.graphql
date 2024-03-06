@@ -1,5 +1,15 @@
 query RunInput {
   cart {
+    lines {
+      merchandise { 
+        ... on ProductVariant {
+              id
+              product {
+                id
+              }
+        }
+       } 
+    }
     cost {
       totalAmount {
         amount

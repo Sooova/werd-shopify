@@ -17,6 +17,7 @@ const NO_CHANGES = {
  * @param {RunInput} input
  * @returns {FunctionRunResult}
  */
+
 export function run(input) {
   // Define a type for your configuration, and parse it from the metafield
   /**
@@ -32,12 +33,13 @@ export function run(input) {
     return NO_CHANGES;
   }
 
-  const cartTotal = parseFloat(input.cart.cost.totalAmount.amount ?? "0.0");
-  // Use the configured cart total instead of a hardcoded value
-  if (cartTotal < configuration.cartTotal) {
-    console.error(
-      "Cart total is not high enough, no need to hide the payment method."
-    );
+    const isProductInCart = input.cart.lines.some((item) =>{
+        return item.merchandise.product.id == 'gid://shopify/Product/9041128358177';
+    }
+  );
+
+  if (!isProductInCart) {
+    console.error("Specific product not found in cart, no need to hide the payment method.");
     return NO_CHANGES;
   }
 
